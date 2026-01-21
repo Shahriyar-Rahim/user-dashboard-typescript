@@ -1,73 +1,119 @@
-# React + TypeScript + Vite
+# User Dashboard (TypeScript + React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal, opinionated starter for building a user dashboard with React, TypeScript and Vite. This repository provides a fast development setup, TypeScript types, basic linting, and a structure suited for dashboards (pages, components, API clients, and styles).
 
-Currently, two official plugins are available:
+## Features
+- React 18 + TypeScript
+- Vite for fast dev server and builds
+- Opinionated project structure for dashboards
+- ESLint + recommended TS rules
+- Example pages and reusable components
+- Ready for local development and production build
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech stack
+- React
+- TypeScript
+- Vite
+- ESLint
+- (Optional) Testing: Vitest / React Testing Library
+- (Optional) Styling: your choice (CSS Modules, Tailwind, styled-components)
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Prerequisites
+- Node.js 18+ recommended
+- npm, yarn, or pnpm
 
-## Expanding the ESLint configuration
+Install
+```bash
+# npm
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# or yarn
+yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# or pnpm
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Development
+```bash
+# start dev server
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
+
+Build
+```bash
+npm run build
+# preview the production build locally
+npm run preview
+```
+
+Linting & Formatting
+```bash
+# run ESLint
+npm run lint
+
+# fix issues
+npm run lint:fix
+```
+
+Testing (optional)
+```bash
+# run tests (if configured)
+npm run test
+```
+
+## Environment
+Create a `.env` (or `.env.local`) in the project root for local configuration. Example:
+```bash
+VITE_API_BASE_URL=https://api.example.com
+VITE_FEATURE_FLAG=true
+```
+Note: Vite requires env var names to start with `VITE_` to be exposed to client code.
+
+## Recommended project layout
+- src/
+  - assets/        — images, fonts
+  - components/    — reusable UI components
+  - pages/         — route pages (Dashboard, Settings, Login)
+  - services/      — API clients, data fetching
+  - stores/        — state management (Context/Redux/Zustand)
+  - styles/        — global styles, tokens
+  - utils/         — utility functions, helpers
+  - main.tsx       — app bootstrap
+  - App.tsx        — top-level routes/layout
+
+## Adding new pages / routes
+- Add a new file under `src/pages` and wire it up in your router (React Router, Wouter, etc.).
+- Keep components small and focused; compose pages from smaller components.
+
+## Production deployment
+Build the app:
+```bash
+npm run build
+```
+Serve the `dist/` output with any static host (Netlify, Vercel, Surge, S3+CloudFront, Docker, etc.). For Vercel or Netlify, follow their standard static frontend deployment guides.
+
+## Troubleshooting
+- "Module not found" after install: run a clean install (remove node_modules and lockfile, reinstall).
+- TypeScript errors in editor but the build succeeds: ensure your editor/IDE is using the workspace TypeScript version.
+
+## Contributing
+Contributions are welcome. Suggested workflow:
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feat/my-change`
+3. Commit changes, open a PR describing your change
+4. Run lint and tests before opening a PR
+
+Please follow consistent code style and include tests for new logic where appropriate.
+
+## License
+MIT Lisence 
+
+## A note about this template
+This README is a general starter. Adjust scripts, tooling, and examples to match the exact packages and configurations in the repository (ESLint rules, testing frameworks, state management, style system, etc.).
