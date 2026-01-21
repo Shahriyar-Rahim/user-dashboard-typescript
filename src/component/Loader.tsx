@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Loader = () => {
   return (
     // make a loading component with css
