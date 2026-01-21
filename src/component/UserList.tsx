@@ -129,7 +129,7 @@ const UserList = () => {
     <div>
       {/* add new user */}
       <div className="bg-white shadow rounded-g overflow-hidden p-6">
-        <h3 className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 cursor-pointer">
+        <h3 className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 cursor-pointer text-center">
           Add New User
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
